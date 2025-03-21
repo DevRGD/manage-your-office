@@ -1,4 +1,8 @@
-# 🏢💼 Manage Your Office
+<p align="center">
+  <img src="public/icons/logo.png" alt="Office Icon">
+</p>
+
+# 🏢 Manage Your Office
 
 ## 🌟 Overview
 

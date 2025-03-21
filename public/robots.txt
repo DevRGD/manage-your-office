@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://manage-your-office.vercel.app
+
+# Sitemaps
+Sitemap: https://manage-your-office.vercel.app/sitemap.xml

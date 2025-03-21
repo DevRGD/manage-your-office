@@ -1,9 +1,7 @@
 'use client';
 import Link from 'next/link';
-import localFont from 'next/font/local';
 import { useSelector } from 'react-redux';
-const Playfair = localFont({ src: '../fonts/Playfair.ttf' });
-const PlayfairItalic = localFont({ src: '../fonts/Playfair-Italic.ttf' });
+import { PlayfairItalic, Playfair } from '@/utils/fonts';
 
 export default function LoginPage() {
   const isDark = useSelector((state) => state.theme.isDark);
@@ -15,8 +13,8 @@ export default function LoginPage() {
       }`}
     >
       <div
-        className={`w-full max-w-md text-center p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 backdrop-blur-md rounded-sm border shadow-2xl transition-colors duration-300 shadow-blue-800 ${
-          isDark ? 'bg-gray-900 border-blue-500 text-slate-200' : 'bg-gray-200 border-blue-300 text-slate-800'
+        className={`w-full max-w-md text-center p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 backdrop-blur-md rounded-sm shadow-2xs transition-colors duration-300 shadow-blue-800 ${
+          isDark ? 'bg-gray-900 text-slate-200' : 'bg-gray-200 text-slate-800'
         }`}
       >
         <h1 className={`text-3xl sm:text-4xl font-bold ${Playfair.className}`}>Welcome Back</h1>
@@ -35,13 +33,22 @@ export default function LoginPage() {
               isDark ? 'bg-gray-700 text-slate-200 border-blue-400' : 'bg-gray-100 text-slate-800 border-blue-300'
             }`}
           />
-          <button className="px-5 py-2 rounded-sm text-lg font-semibold shadow-md bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-400 hover:to-teal-400 transition-transform transform duration-300">
-            Login
+          <button
+            className={`group relative sm:px-6 overflow-hidden sm:text-base px-5 py-2 rounded-sm text-lg font-semibold shadow-md transition-transform transform duration-300 ${
+              isDark ? 'bg-gradient-to-r from-blue-600 to-teal-600' : 'bg-gray-950 text-slate-200'
+            }`}
+          >
+            <span className="relative z-10">Login</span>
+            <span
+              className={`absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${
+                isDark ? 'bg-gradient-to-r from-blue-500 to-teal-500' : 'bg-gray-800'
+              }`}
+            ></span>
           </button>
         </form>
         <p className="mt-6 text-sm">
           Don't have an account?{' '}
-          <Link href="/signup" className={`text-blue-400 hover:text-blue-300 transition-colors ${PlayfairItalic.className}`}>
+          <Link href="/signup" className={`text-blue-500 hover:text-blue-300 transition-colors ${PlayfairItalic.className}`}>
             Sign up
           </Link>
         </p>

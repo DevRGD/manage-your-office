@@ -5,11 +5,11 @@ export default function Footer() {
 
   return (
     <footer
-      className={`w-full py-3 text-center transition-colors duration-300 ${
+      className={`w-full py-4 text-center transition-colors duration-300 ${
         isDark ? 'bg-gray-950 text-slate-400' : 'bg-gray-300 text-slate-700'
       }`}
     >
-      <p className="text-balance sm:text-xs md:text-sm lg:text-base">&copy; {new Date().getFullYear()} MYO. All rights reserved.</p>
+      <p className="text-xs sm:text-xs md:text-sm lg:text-base">&copy; {new Date().getFullYear()} MYO. All rights reserved.</p>
     </footer>
   );
 }

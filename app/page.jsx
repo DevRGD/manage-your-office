@@ -1,11 +1,7 @@
 'use client';
-import { useSelector } from 'react-redux';
-import localFont from 'next/font/local';
 import Link from 'next/link';
-
-const GreatVibes = localFont({ src: '/fonts/GreatVibes-Regular.ttf' });
-const PlayfairItalic = localFont({ src: '/fonts/Playfair-Italic.ttf' });
-const Playfair = localFont({ src: '/fonts/Playfair.ttf' });
+import { useSelector } from 'react-redux';
+import { GreatVibes, PlayfairItalic, Playfair } from '@/utils/fonts';
 
 export default function Page() {
   const isDark = useSelector((state) => state.theme.isDark);
@@ -18,8 +14,8 @@ export default function Page() {
     >
       {/* Content Box */}
       <div
-        className={`max-w-[90%] sm:max-w-2xl min-h-[50vh] mx-auto my-6 sm:my-8 md:my-10 lg:my-12 px-6 sm:px-10 md:px-12 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 text-center backdrop-blur-md rounded-md border shadow-2xl transition-colors duration-300 shadow-blue-800 ${
-          isDark ? 'bg-gray-900 border-blue-500 text-slate-200' : 'bg-gray-200 border-blue-300 text-slate-800'
+        className={`max-w-[90%] sm:max-w-2xl min-h-[50vh] mx-auto my-6 sm:my-8 md:my-10 lg:my-12 px-6 sm:px-10 md:px-12 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 text-center backdrop-blur-md rounded-sm shadow-2xs transition-colors duration-300 shadow-blue-800 ${
+          isDark ? 'bg-gray-900 text-slate-200' : 'bg-gray-200 text-slate-800'
         }`}
       >
         {/* Heading */}
@@ -43,25 +39,34 @@ export default function Page() {
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-6">
+          {/* Login Button */}
           <Link
             href="/login"
-            className={`px-5 sm:px-6 py-2 rounded-sm text-sm sm:text-base font-semibold shadow-md transition-transform transform duration-300 ${
-              isDark
-                ? 'bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-400 hover:to-teal-400'
-                : 'bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400'
+            className={`group relative px-5 sm:px-6 py-2 overflow-hidden text-sm sm:text-base font-semibold shadow-md transition-transform transform duration-300 ${
+              isDark ? 'bg-gradient-to-r from-blue-600 to-teal-600' : 'bg-gray-800 text-slate-200'
             }`}
           >
-            Login
+            <span className="relative z-10">Login</span>
+            <span
+              className={`absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${
+                isDark ? 'bg-gradient-to-r from-blue-500 to-teal-500' : 'bg-gray-700'
+              }`}
+            ></span>
           </Link>
+
+          {/* Sign Up Button */}
           <Link
             href="/signup"
-            className={`px-5 sm:px-6 py-2 rounded-sm text-sm sm:text-base font-semibold shadow-md transition-transform transform duration-300 ${
-              isDark
-                ? 'bg-gradient-to-r from-teal-500 to-indigo-500 hover:from-teal-400 hover:to-indigo-400'
-                : 'bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400'
+            className={`group relative px-5 sm:px-6 py-2 overflow-hidden text-sm sm:text-base font-semibold shadow-md transition-transform transform duration-300 ${
+              isDark ? 'bg-gradient-to-r from-teal-600 to-blue-600' : 'bg-blue-600 text-slate-200'
             }`}
           >
-            Sign Up
+            <span className="relative z-10">Sign Up</span>
+            <span
+              className={`absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${
+                isDark ? 'bg-gradient-to-r from-teal-500 to-blue-500' : 'bg-blue-500'
+              }`}
+            ></span>
           </Link>
         </div>
       </div>
