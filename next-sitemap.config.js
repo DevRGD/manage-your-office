@@ -2,14 +2,11 @@
 module.exports = {
   siteUrl: 'https://manage-your-office.vercel.app',
   generateRobotsTxt: true,
-  sitemapSize: 5000,
   generateIndexSitemap: true,
+  sitemapSize: 5000,
   exclude: ['/admin', '/dashboard'],
   robotsTxtOptions: {
-    policies: [
-      { userAgent: '*', allow: '/' },
-      { userAgent: 'Googlebot', allow: '/' },
-    ],
-    additionalSitemaps: ['https://manage-your-office.vercel.app/sitemap.xml'],
+    policies: [{ userAgent: '*', allow: '/' }],
+    additionalSitemaps: ['https://manage-your-office.vercel.app/sitemap-0.xml', 'https://manage-your-office.vercel.app/sitemap.xml'],
   },
 };
