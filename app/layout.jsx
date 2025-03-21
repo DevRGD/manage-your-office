@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import AllProviders from '@/components/AllProviders';
 
 export const metadata = {
@@ -104,7 +105,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
-      <AllProviders>{children}</AllProviders>
+      <AllProviders>
+        {children}
+        <Analytics />
+      </AllProviders>
     </html>
   );
 }
