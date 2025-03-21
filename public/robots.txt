@@ -11,3 +11,4 @@ Host: https://manage-your-office.vercel.app
 
 # Sitemaps
 Sitemap: https://manage-your-office.vercel.app/sitemap.xml
+Sitemap: https://manage-your-office.vercel.app/sitemap-0.xml
