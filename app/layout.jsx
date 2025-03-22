@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next';
 import AllProviders from '@/components/AllProviders';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
+import ClientWrapper from '@/components/ClientWrapper';
 
 export const metadata = {
   title: 'Manage Your Office – Organize Tasks, Track Progress, and Boost Productivity',
