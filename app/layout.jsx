@@ -1,6 +1,7 @@
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import AllProviders from '@/components/AllProviders';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: 'Manage Your Office – Organize Tasks, Track Progress, and Boost Productivity',
@@ -95,7 +96,7 @@ export const metadata = {
     { key: 'X-XSS-Protection', value: '1; mode=block' },
     { key: 'X-Content-Type-Options', value: 'nosniff' },
   ],
-  sitemap: 'https://manage-your-office.vercel.app/sitemap.xml',
+  sitemap: ['https://manage-your-office.vercel.app/sitemap-0.xml', 'https://manage-your-office.vercel.app/sitemap.xml'],
 
   verification: {
     google: '_-PU493YxWEYMk6eON2Vk4eZDAX7AxEmIDYQiYdQKjw',
@@ -105,8 +106,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
-      <Analytics />
-      <AllProviders>{children}</AllProviders>
+      <AllProviders>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </AllProviders>
     </html>
   );
 }
