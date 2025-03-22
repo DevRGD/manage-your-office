@@ -105,10 +105,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
-      <AllProviders>
-        {children}
-        <Analytics />
-      </AllProviders>
+      <Analytics />
+      <AllProviders>{children}</AllProviders>
     </html>
   );
 }
