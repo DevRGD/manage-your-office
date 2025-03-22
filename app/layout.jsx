@@ -1,9 +1,10 @@
 import './globals.css';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import AllProviders from '@/components/AllProviders';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import Script from 'next/script';
 import ClientWrapper from '@/components/ClientWrapper';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GreatVibes, PlayfairItalic, Playfair } from '@/utils/fonts';
 
 export const metadata = {
   title: 'Manage Your Office – Organize Tasks, Track Progress, and Boost Productivity',
@@ -82,16 +83,28 @@ export const metadata = {
       'A powerful office management tool that helps teams stay productive, manage tasks efficiently, and track progress in real-time.',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0.00',
+      priceCurrency: 'INR',
+    },
     author: {
       '@type': 'Organization',
       name: 'EncodePreneur',
+      url: 'https://manage-your-office.vercel.app',
     },
   },
   securityHeaders: [
     {
       key: 'Content-Security-Policy',
-      value:
-        "default-src 'self'; img-src 'self' data: https://manage-your-office.vercel.app; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://manage-your-office.vercel.app;",
+      value: `
+        default-src 'self';
+        img-src 'self' data: https://manage-your-office.vercel.app;
+        script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
+        frame-ancestors 'none';
+      `,
     },
     { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
     { key: 'X-Frame-Options', value: 'DENY' },
@@ -102,15 +115,18 @@ export const metadata = {
 
   verification: {
     google: '_-PU493YxWEYMk6eON2Vk4eZDAX7AxEmIDYQiYdQKjw',
+    bing: 'YOUR_BING_VERIFICATION_CODE',
+    yandex: 'YOUR_YANDEX_VERIFICATION_CODE',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en-IN" className="h-full">
       <head>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-YQF6R3XVYN" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-YQF6R3XVYN" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -121,12 +137,14 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <AllProviders>
-        {children}
-        <Analytics />
-        <SpeedInsights />
-        <ClientWrapper GA_TRACKING_ID={'G-YQF6R3XVYN'} />
-      </AllProviders>
+      <body className={`h-full flex flex-col ${Playfair.className} ${GreatVibes.className} ${PlayfairItalic.className}`}>
+        <AllProviders>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <ClientWrapper GA_TRACKING_ID={'G-YQF6R3XVYN'} />
+        </AllProviders>
+      </body>
     </html>
   );
 }
