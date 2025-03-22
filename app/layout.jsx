@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/next';
 import AllProviders from '@/components/AllProviders';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
-import useGtag from '@/hooks/useGtag';
 
 export const metadata = {
   title: 'Manage Your Office – Organize Tasks, Track Progress, and Boost Productivity',
@@ -106,8 +105,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  useGtag('G-YQF6R3XVYN');
-
   return (
     <html lang="en" className="h-full">
       <head>
@@ -127,6 +124,7 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
         <SpeedInsights />
+        <ClientWrapper GA_TRACKING_ID={'G-YQF6R3XVYN'} />
       </AllProviders>
     </html>
   );
