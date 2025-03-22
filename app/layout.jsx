@@ -108,7 +108,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <head>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-YQF6R3XVYN" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
