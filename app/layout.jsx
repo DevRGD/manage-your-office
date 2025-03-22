@@ -96,10 +96,6 @@ export const metadata = {
     { key: 'X-Content-Type-Options', value: 'nosniff' },
   ],
   sitemap: 'https://manage-your-office.vercel.app/sitemap.xml',
-
-  verification: {
-    google: '_-PU493YxWEYMk6eON2Vk4eZDAX7AxEmIDYQiYdQKjw',
-  },
 };
 
 export default function RootLayout({ children }) {
