@@ -24,11 +24,11 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
+    "@tailwindcss/postcss": "^4.0.15",
     "three": "^0.173.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.0.15",
     "@typescript-eslint/parser": "^8.27.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
