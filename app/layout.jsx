@@ -107,6 +107,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   useGtag('G-YQF6R3XVYN');
+
   return (
     <html lang="en" className="h-full">
       <head>
